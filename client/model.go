@@ -3,7 +3,8 @@
 package client
 
 const (
-	ModeDocument = "DOCUMENT"
+	ModeDocument      = "DOCUMENT"
+	ModeMigrateSyntax = "MIGRATE_SYNTAX"
 
 	StatusInProgress = "IN_PROGRESS"
 	StatusCompleted  = "COMPLETED"
