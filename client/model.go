@@ -41,13 +41,18 @@ type GetProcessOutputResponse struct {
 }
 
 type Process struct {
-	Mode     string `json:"mode"`
-	Language string `json:"language"`
-	Input    Input  `json:"input"`
+	Mode          string         `json:"mode"`
+	Language      string         `json:"language"`
+	Input         Input          `json:"input"`
+	OutputOptions *OutputOptions `json:"outputOptions"`
 }
 
 type Input struct {
 	Source string `json:"source"`
+}
+
+type OutputOptions struct {
+	LanguageVersion *string `json:"languageVersion"`
 }
 
 type Output struct {
