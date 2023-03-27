@@ -5,6 +5,7 @@ package client
 const (
 	ModeDocument      = "DOCUMENT"
 	ModeMigrateSyntax = "MIGRATE_SYNTAX"
+	ModeUnitTest      = "UNIT_TEST"
 
 	StatusInProgress = "IN_PROGRESS"
 	StatusCompleted  = "COMPLETED"
@@ -53,6 +54,7 @@ type Input struct {
 
 type OutputOptions struct {
 	LanguageVersion *string `json:"languageVersion"`
+	Framework       *string `json:"framework"`
 }
 
 type Output struct {
