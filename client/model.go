@@ -3,9 +3,10 @@
 package client
 
 const (
-	ModeDocument      = "DOCUMENT"
-	ModeMigrateSyntax = "MIGRATE_SYNTAX"
-	ModeUnitTest      = "UNIT_TEST"
+	ModeDocument       = "DOCUMENT"
+	ModeUnitTest       = "UNIT_TEST"
+	ModeMigrateSyntax  = "MIGRATE_SYNTAX"
+	ModeRefactorNaming = "REFACTOR_NAMING"
 
 	StatusInProgress = "IN_PROGRESS"
 	StatusCompleted  = "COMPLETED"
