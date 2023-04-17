@@ -3,6 +3,7 @@
 package client
 
 const (
+	ModeCode           = "CODE"
 	ModeDocument       = "DOCUMENT"
 	ModeUnitTest       = "UNIT_TEST"
 	ModeMigrateSyntax  = "MIGRATE_SYNTAX"
