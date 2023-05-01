@@ -16,7 +16,8 @@ const (
 )
 
 const (
-	LanguageJava = "JAVA"
+	LanguageJava       = "JAVA"
+	LanguageJavaScript = "JAVASCRIPT"
 )
 
 type CreateProcessRequest struct {
