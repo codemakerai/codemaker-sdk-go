@@ -3,6 +3,6 @@
 package client
 
 var (
-	Version string = "0.0.6"
+	Version string = "0.0.7"
 	Build   string = "20230501"
 )
