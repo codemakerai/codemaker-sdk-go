@@ -80,7 +80,7 @@ func TestClient(t *testing.T) {
 		}
 	})
 
-	t.Run("CreateProcess request is successful for JAVA language", func(t *testing.T) {
+	t.Run("CreateProcess request is successful for all languages", func(t *testing.T) {
 		ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(http.StatusCreated)
 			fmt.Fprintln(w, `{"id": "id"}`)
@@ -89,54 +89,27 @@ func TestClient(t *testing.T) {
 
 		client := client(ts.URL)
 
-		got, err := client.CreateProcess(&CreateProcessRequest{
-			Process: Process{
-				Mode:     ModeDocument,
-				Language: LanguageJava,
-				Input: Input{
-					Source: "",
+		languages := []string{LanguageJavaScript, LanguageJava, LanguageKotlin}
+		for _, language := range languages {
+			got, err := client.CreateProcess(&CreateProcessRequest{
+				Process: Process{
+					Mode:     ModeDocument,
+					Language: LanguageJavaScript,
+					Input: Input{
+						Source: "",
+					},
 				},
-			},
-		})
-		if err != nil {
-			t.Fatalf("Request failed with an error %v", err)
-		}
+			})
+			if err != nil {
+				t.Fatalf("Request failed for language %s with an error %v", language, err)
+			}
 
-		if got == nil {
-			t.Fatalf("Response was expect not to be nil")
-		}
-		if got.Id != "id" {
-			t.Fatalf("Response id was incorrect got %s", got.Id)
-		}
-	})
-
-	t.Run("CreateProcess request is successful for JAVASCRIPT language", func(t *testing.T) {
-		ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			w.WriteHeader(http.StatusCreated)
-			fmt.Fprintln(w, `{"id": "id"}`)
-		}))
-		defer ts.Close()
-
-		client := client(ts.URL)
-
-		got, err := client.CreateProcess(&CreateProcessRequest{
-			Process: Process{
-				Mode:     ModeDocument,
-				Language: LanguageJavaScript,
-				Input: Input{
-					Source: "",
-				},
-			},
-		})
-		if err != nil {
-			t.Fatalf("Request failed with an error %v", err)
-		}
-
-		if got == nil {
-			t.Fatalf("Response was expect not to be nil")
-		}
-		if got.Id != "id" {
-			t.Fatalf("Response id was incorrect got %s", got.Id)
+			if got == nil {
+				t.Fatalf("Response was expect not to be nil for language %s", language)
+			}
+			if got.Id != "id" {
+				t.Fatalf("Response id was incorrect got %s for language %s", got.Id, language)
+			}
 		}
 	})
 
