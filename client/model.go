@@ -21,6 +21,11 @@ const (
 	LanguageKotlin     = "KOTLIN"
 )
 
+const (
+	ModifyNone    = "NONE"
+	ModifyReplace = "REPLACE"
+)
+
 type CreateProcessRequest struct {
 	Process Process `json:"process"`
 }
@@ -46,19 +51,20 @@ type GetProcessOutputResponse struct {
 }
 
 type Process struct {
-	Mode          string         `json:"mode"`
-	Language      string         `json:"language"`
-	Input         Input          `json:"input"`
-	OutputOptions *OutputOptions `json:"outputOptions"`
+	Mode     string   `json:"mode"`
+	Language string   `json:"language"`
+	Input    Input    `json:"input"`
+	Options  *Options `json:"options"`
 }
 
 type Input struct {
 	Source string `json:"source"`
 }
 
-type OutputOptions struct {
+type Options struct {
 	LanguageVersion *string `json:"languageVersion"`
 	Framework       *string `json:"framework"`
+	Modify          *string `json:"modify"`
 }
 
 type Output struct {
