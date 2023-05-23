@@ -65,6 +65,7 @@ type Options struct {
 	LanguageVersion *string `json:"languageVersion"`
 	Framework       *string `json:"framework"`
 	Modify          *string `json:"modify"`
+	CodePath        *string `json:"codePath"`
 }
 
 type Output struct {
