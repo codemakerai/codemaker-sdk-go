@@ -18,6 +18,7 @@ const (
 const (
 	LanguageJavaScript = "JAVASCRIPT"
 	LanguageJava       = "JAVA"
+	LanguageGo         = "GO"
 	LanguageKotlin     = "KOTLIN"
 )
 
