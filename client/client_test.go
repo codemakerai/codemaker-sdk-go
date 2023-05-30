@@ -89,7 +89,7 @@ func TestClient(t *testing.T) {
 
 		client := client(ts.URL)
 
-		languages := []string{LanguageJavaScript, LanguageJava, LanguageKotlin}
+		languages := []string{LanguageJavaScript, LanguageJava, LanguageGo, LanguageKotlin}
 		for _, language := range languages {
 			got, err := client.CreateProcess(&CreateProcessRequest{
 				Process: Process{
