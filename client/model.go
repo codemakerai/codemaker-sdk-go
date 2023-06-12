@@ -3,6 +3,7 @@
 package client
 
 const (
+	ModeCompletion     = "COMPLETION"
 	ModeCode           = "CODE"
 	ModeDocument       = "DOCUMENT"
 	ModeUnitTest       = "UNIT_TEST"
@@ -17,6 +18,7 @@ const (
 
 const (
 	LanguageJavaScript = "JAVASCRIPT"
+	LanguageTypeScript = "TYPESCRIPT"
 	LanguageJava       = "JAVA"
 	LanguageGo         = "GO"
 	LanguageKotlin     = "KOTLIN"

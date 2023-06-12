@@ -89,7 +89,7 @@ func TestClient(t *testing.T) {
 
 		client := client(ts.URL)
 
-		languages := []string{LanguageJavaScript, LanguageJava, LanguageGo, LanguageKotlin}
+		languages := []string{LanguageJavaScript, LanguageTypeScript, LanguageJava, LanguageGo, LanguageKotlin}
 		for _, language := range languages {
 			got, err := client.CreateProcess(&CreateProcessRequest{
 				Process: Process{
@@ -110,6 +110,66 @@ func TestClient(t *testing.T) {
 			if got.Id != "id" {
 				t.Fatalf("Response id was incorrect got %s for language %s", got.Id, language)
 			}
+		}
+	})
+
+	t.Run("CreateProcess request for mode COMPLETION is successful", func(t *testing.T) {
+		ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			w.WriteHeader(http.StatusCreated)
+			fmt.Fprintln(w, `{"id": "id"}`)
+		}))
+		defer ts.Close()
+
+		client := client(ts.URL)
+
+		got, err := client.CreateProcess(&CreateProcessRequest{
+			Process: Process{
+				Mode:     ModeCode,
+				Language: LanguageJava,
+				Input: Input{
+					Source: "",
+				},
+			},
+		})
+		if err != nil {
+			t.Fatalf("Request failed with an error %v", err)
+		}
+
+		if got == nil {
+			t.Fatalf("Response was expect not to be nil")
+		}
+		if got.Id != "id" {
+			t.Fatalf("Response id was incorrect got %s", got.Id)
+		}
+	})
+
+	t.Run("CreateProcess request for mode CODE is successful", func(t *testing.T) {
+		ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			w.WriteHeader(http.StatusCreated)
+			fmt.Fprintln(w, `{"id": "id"}`)
+		}))
+		defer ts.Close()
+
+		client := client(ts.URL)
+
+		got, err := client.CreateProcess(&CreateProcessRequest{
+			Process: Process{
+				Mode:     ModeCode,
+				Language: LanguageJava,
+				Input: Input{
+					Source: "",
+				},
+			},
+		})
+		if err != nil {
+			t.Fatalf("Request failed with an error %v", err)
+		}
+
+		if got == nil {
+			t.Fatalf("Response was expect not to be nil")
+		}
+		if got.Id != "id" {
+			t.Fatalf("Response id was incorrect got %s", got.Id)
 		}
 	})
 
