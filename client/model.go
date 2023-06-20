@@ -20,8 +20,9 @@ const (
 	LanguageJavaScript = "JAVASCRIPT"
 	LanguageTypeScript = "TYPESCRIPT"
 	LanguageJava       = "JAVA"
-	LanguageGo         = "GO"
 	LanguageKotlin     = "KOTLIN"
+	LanguageCSharp     = "CSHARP"
+	LanguageGo         = "GO"
 )
 
 const (
