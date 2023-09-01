@@ -173,6 +173,36 @@ func TestClient(t *testing.T) {
 		}
 	})
 
+	t.Run("CreateProcess request for mode INLINE_CODE is successful", func(t *testing.T) {
+		ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			w.WriteHeader(http.StatusCreated)
+			fmt.Fprintln(w, `{"id": "id"}`)
+		}))
+		defer ts.Close()
+
+		client := client(ts.URL)
+
+		got, err := client.CreateProcess(&CreateProcessRequest{
+			Process: Process{
+				Mode:     ModeInlineCode,
+				Language: LanguageJava,
+				Input: Input{
+					Source: "",
+				},
+			},
+		})
+		if err != nil {
+			t.Fatalf("Request failed with an error %v", err)
+		}
+
+		if got == nil {
+			t.Fatalf("Response was expect not to be nil")
+		}
+		if got.Id != "id" {
+			t.Fatalf("Response id was incorrect got %s", got.Id)
+		}
+	})
+
 	t.Run("CreateProcess request for mode DOCUMENT is successful", func(t *testing.T) {
 		ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(http.StatusCreated)

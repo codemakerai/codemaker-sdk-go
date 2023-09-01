@@ -5,6 +5,7 @@ package client
 const (
 	ModeCompletion     = "COMPLETION"
 	ModeCode           = "CODE"
+	ModeInlineCode     = "INLINE_CODE"
 	ModeDocument       = "DOCUMENT"
 	ModeUnitTest       = "UNIT_TEST"
 	ModeMigrateSyntax  = "MIGRATE_SYNTAX"
