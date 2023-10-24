@@ -6,10 +6,12 @@ const (
 	ModeCompletion     = "COMPLETION"
 	ModeCode           = "CODE"
 	ModeInlineCode     = "INLINE_CODE"
+	ModeEditCode       = "EDIT_CODE"
 	ModeDocument       = "DOCUMENT"
 	ModeUnitTest       = "UNIT_TEST"
 	ModeMigrateSyntax  = "MIGRATE_SYNTAX"
 	ModeRefactorNaming = "REFACTOR_NAMING"
+	ModeFixSyntax      = "FIX_SYNTAX"
 
 	StatusInProgress = "IN_PROGRESS"
 	StatusCompleted  = "COMPLETED"
