@@ -1,7 +1,5 @@
 # codemaker-sdk-go
 
-The CodeMaker SDK for Golang.
-
 Official SDK for CodeMaker AI APIs.
 
 # Getting Started
