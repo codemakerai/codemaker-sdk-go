@@ -20,12 +20,16 @@ const (
 )
 
 const (
+	LanguageC          = "C"
+	LanguageCPP        = "CPP"
 	LanguageJavaScript = "JAVASCRIPT"
-	LanguageTypeScript = "TYPESCRIPT"
+	LanguagePHP        = "PHP"
 	LanguageJava       = "JAVA"
-	LanguageKotlin     = "KOTLIN"
 	LanguageCSharp     = "CSHARP"
 	LanguageGo         = "GO"
+	LanguageKotlin     = "KOTLIN"
+	LanguageTypeScript = "TYPESCRIPT"
+	LanguageTypeRust   = "RUST"
 )
 
 const (
