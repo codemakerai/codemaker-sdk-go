@@ -29,7 +29,7 @@ const (
 	LanguageGo         = "GO"
 	LanguageKotlin     = "KOTLIN"
 	LanguageTypeScript = "TYPESCRIPT"
-	LanguageTypeRust   = "RUST"
+	LanguageRust       = "RUST"
 )
 
 const (
